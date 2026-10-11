@@ -1,8 +1,8 @@
 #lang algebraic/racket/base
 
-(require algebraic/class/applicative
-         algebraic/class/functor
-         algebraic/class/monad
+(require algebraic/control/applicative
+         algebraic/data/functor
+         algebraic/control/monad
          algebraic/data/event
          event
          racket/contract/base)
@@ -15,7 +15,7 @@
   [gate-open? predicate/c]
   [gated (-> gate? evt? evt?)]))
 
-(instantiate EventApplicative)
+(instantiate event-applicative)
 
 (struct gate (thread)
   #:property prop:evt (φ G (void-evt (gate-thread G))))

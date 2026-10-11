@@ -1,8 +1,8 @@
 #lang algebraic/racket/base
 
-(require algebraic/class/applicative
-         algebraic/class/functor
-         algebraic/class/monad
+(require algebraic/control/applicative
+         algebraic/data/functor
+         algebraic/control/monad
          algebraic/data/event
          algebraic/data/values
          racket/contract/base)
@@ -27,8 +27,8 @@
   [promise-evt (-> evt? evt?)]
   [promises-evt (-> evt? ... evt?)]))
 
-(instantiate EventApplicative)
-(instantiate values- ValuesMonad)
+(instantiate event-applicative)
+(instantiate values- values-monad)
 
 (define-syntax event
   (μ* (body ...+) (handle-evt always-evt (λ _ body ...))))
